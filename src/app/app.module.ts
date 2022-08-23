@@ -9,6 +9,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 // modulos
 import { AppRoutingModule } from './app.routing.module';
+import { NgChartsModule } from 'ng2-charts';
+
 
 // Ngrex
 import { StoreModule } from '@ngrx/store';
@@ -28,6 +30,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +44,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdenIngresoPipe
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFirestoreModule,
     AngularFireAuthModule,
     StoreModule.forRoot( appReducers ),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
