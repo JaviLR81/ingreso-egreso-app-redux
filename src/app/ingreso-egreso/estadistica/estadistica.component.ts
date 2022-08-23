@@ -56,9 +56,6 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
                           return acumulador + number.monto
                         }, 0)
 
-    console.log("~ ingresos", this.ingresos)
-    console.log("~ totalIngresos", this.totalIngresos)
-
     this.totalEgresos = items
                   .filter( item => item.tipo === 'egreso' )
                   .reduce( (acumulador, number) => {
@@ -66,8 +63,6 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
                     return acumulador + number.monto
                   }, 0)
 
-    console.log("~ egresos", this.egresos)
-    console.log("~ totalEgresos", this.totalEgresos)
 
     this.doughnutChartData =  {
                           labels: this.doughnutChartLabels,

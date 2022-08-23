@@ -49,11 +49,7 @@ export class AuthService {
           // no existe
           // llamar unset del user
           this._user = null as any;
-
-          if(this.userSubs != null){
-            this.userSubs.unsubscribe();
-          }
-
+          this.userSubs?.unsubscribe();
           this.store.dispatch( authActions.unsetUser() );
           this.store.dispatch( ingresoEgresoActions.unsetItems() );
         }

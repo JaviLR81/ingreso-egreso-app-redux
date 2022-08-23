@@ -9,7 +9,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 // modulos
 import { AppRoutingModule } from './app.routing.module';
-import { NgChartsModule } from 'ng2-charts';
 
 
 // Ngrex
@@ -20,43 +19,28 @@ import { appReducers } from './app.reducer';
 
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.component';
-import { EstadisticaComponent } from './ingreso-egreso/estadistica/estadistica.component';
-import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
+
+// Módulos
+import { AuthModule } from './auth/auth.module';
+import { IngresoEgresoModule } from './ingreso-egreso/ingreso-egreso.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    DashboardComponent,
-    IngresoEgresoComponent,
-    EstadisticaComponent,
-    DetalleComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
-    OrdenIngresoPipe
   ],
   imports: [
     BrowserModule,
+    AuthModule,
+    IngresoEgresoModule,
+
     AppRoutingModule,
-    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     StoreModule.forRoot( appReducers ),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    NgChartsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
